@@ -43,12 +43,9 @@ jobs:
       - name: Run Assemble Unsigned Release
         run: ./gradlew assembleFreeDynamicUnsignedRelease
 
-      - name: Find APK
-        run: find lemuroid-app/build/outputs/apk -name "*.apk"
-
       - name: Upload Unsigned APK
         uses: actions/upload-artifact@v4
         with:
           name: apk-unsigned
-          path: lemuroid-app/build/outputs/apk/freeDynamic/unsignedRelease/lemuroid-app-free-dynamic-unsigned-release.apk
+          path: lemuroid-app/build/outputs/apk/freeDynamic/unsignedRelease/lemuroid-app-free-dynamic-unsignedRelease-unsigned.apk
           retention-days: 7
