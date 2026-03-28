@@ -129,6 +129,12 @@ android {
         jvmTarget = "17"
     }
     namespace = "com.swordfish.lemuroid"
+
+    sourceSets {
+        getByName("unsignedRelease") {
+            java.srcDirs("src/release/java")
+        }
+    }
 }
 
 dependencies {
