@@ -109,7 +109,7 @@ android {
             matchingFallbacks += "release"
             versionNameSuffix = "-UNSIGNED"
             resValue("string", "lemuroid_name", "Lemuroid")
-}
+        }
     }
 
     lint {
