@@ -103,6 +103,13 @@ android {
             versionNameSuffix = "-DEBUG"
             resValue("string", "lemuroid_name", "LemuroiDebug")
         }
+        create("unsignedRelease") {
+            initWith(getByName("release"))
+            signingConfig = null
+            matchingFallbacks += "release"
+            versionNameSuffix = "-UNSIGNED"
+            resValue("string", "lemuroid_name", "Lemuroid")
+}
     }
 
     lint {
