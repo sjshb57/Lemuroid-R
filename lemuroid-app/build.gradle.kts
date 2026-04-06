@@ -44,10 +44,7 @@ android {
         )
     }
 
-    // Since some dependencies are closed source we make a completely free as in free speech variant.
-
     productFlavors {
-
         create("free") {
             dimension = "opensource"
         }
@@ -56,12 +53,10 @@ android {
             dimension = "opensource"
         }
 
-        // Include cores in the final apk
         create("bundle") {
             dimension = "cores"
         }
 
-        // Download cores on demand (from GooglePlay or GitHub)
         create("dynamic") {
             dimension = "cores"
         }
@@ -69,9 +64,9 @@ android {
 
     packagingOptions {
         jniLibs {
-            // Stripping created some issues with some libretro cores such as ppsspp
             keepDebugSymbols += setOf("*/*/*_libretro_android.so")
             useLegacyPackaging = true
+            pickFirsts += setOf("**/libc++_shared.so")
         }
         resources {
             excludes += setOf("META-INF/DEPENDENCIES", "META-INF/library_release.kotlin_module")
@@ -215,9 +210,6 @@ dependencies {
     implementation(deps.libs.composeSettings.memoryStorage)
 
     implementation(deps.libs.libretrodroid)
-
-    // Uncomment this when using a local aar file.
-    // implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
 
     kapt(deps.libs.dagger.android.processor)
     kapt(deps.libs.dagger.compiler)
