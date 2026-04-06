@@ -69,10 +69,15 @@ android {
 
     packagingOptions {
         jniLibs {
-            // Stripping created some issues with some libretro cores such as ppsspp
-            keepDebugSymbols += setOf("*/*/*_libretro_android.so")
-            useLegacyPackaging = true
-        }
+    keepDebugSymbols += setOf("*/*/*_libretro_android.so")
+    useLegacyPackaging = true
+    // Fix that error, incremental splitting
+    pickFirsts += "**/lib/arm64-v8a/libc++_shared.so"
+    pickFirsts += "**/lib/armeabi-v7a/libc++_shared.so"
+    pickFirsts += "**/lib/x86/libc++_shared.so"
+    pickFirsts += "**/lib/x86_64/libc++_shared.so"
+}
+
         resources {
             excludes += setOf("META-INF/DEPENDENCIES", "META-INF/library_release.kotlin_module")
         }
