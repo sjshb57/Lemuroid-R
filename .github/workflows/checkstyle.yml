@@ -26,16 +26,8 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Generate debug keystore
-      run: |
-        keytool -genkey -v \
-          -keystore ${{ github.workspace }}/debug.keystore \
-          -alias androiddebugkey \
-          -keyalg RSA -keysize 2048 \
-          -validity 10000 \
-          -storepass android \
-          -keypass android \
-          -dname "CN=Android Debug,O=Android,C=US"
+    - name: Copy debug keystore
+      run: cp ~/.android/debug.keystore ${{ github.workspace }}/debug.keystore
 
     - name: Run ktlint tests
       run: ./gradlew assembleDebug ktlintCheck
