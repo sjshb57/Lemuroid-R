@@ -72,6 +72,9 @@ android {
             // Stripping created some issues with some libretro cores such as ppsspp
             keepDebugSymbols += setOf("*/*/*_libretro_android.so")
             useLegacyPackaging = true
+            
+            // FIX: Prevent IncrementalSplitterRunnable errors caused by duplicated C++ libs across multiple emulator cores
+            pickFirsts += setOf("**/libc++_shared.so")
         }
         resources {
             excludes += setOf("META-INF/DEPENDENCIES", "META-INF/library_release.kotlin_module")
