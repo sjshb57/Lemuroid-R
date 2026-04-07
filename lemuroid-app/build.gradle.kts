@@ -66,6 +66,8 @@ android {
         jniLibs {
             keepDebugSymbols += setOf("*/*/*_libretro_android.so")
             useLegacyPackaging = true
+            
+            // FIX: Prevent IncrementalSplitterRunnable errors caused by duplicated C++ libs across multiple emulator cores
             pickFirsts += setOf("**/libc++_shared.so")
         }
         resources {
