@@ -27,4 +27,4 @@ jobs:
       run: chmod +x gradlew
 
     - name: Run ktlint tests
-      run: ./gradlew assembleDebug ktlintCheck
+      run: ./gradlew assembleDebug ktlintCheck --stacktrace
