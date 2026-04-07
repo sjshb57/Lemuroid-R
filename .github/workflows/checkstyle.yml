@@ -27,4 +27,6 @@ jobs:
       run: chmod +x gradlew
 
     - name: Run ktlint tests
-      run: ./gradlew assembleDebug ktlintCheck --stacktrace
+      run: ./gradlew assembleDebug ktlintCheck
+      env:
+        GRADLE_OPTS: "-Xmx4g -XX:MaxMetaspaceSize=512m"
