@@ -29,4 +29,4 @@ jobs:
     - name: Run ktlint tests
       run: ./gradlew assembleDebug ktlintCheck
       env:
-        GRADLE_OPTS: "-Xmx4g -XX:MaxMetaspaceSize=512m"
+        GRADLE_OPTS: "-Xmx6g -XX:MaxMetaspaceSize=512m"
