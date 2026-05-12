@@ -35,7 +35,7 @@ jobs:
         run: ./gradlew assembleFreeDynamic
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: apk
           path: lemuroid-app/build/outputs/apk/freeDynamic/release/lemuroid-app-free-dynamic-release.apk
