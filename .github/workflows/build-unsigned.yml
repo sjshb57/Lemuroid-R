@@ -44,7 +44,7 @@ jobs:
         run: ./gradlew assembleFreeDynamicUnsignedRelease
 
       - name: Upload Unsigned APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: apk-unsigned
           path: lemuroid-app/build/outputs/apk/freeDynamic/unsignedRelease/lemuroid-app-free-dynamic-unsignedRelease-unsigned.apk
